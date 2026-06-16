@@ -4,6 +4,7 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import com.testautomation.apitesting.utils.BaseTest;
+import com.testautomation.apitesting.utils.FileNameConstants;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -32,7 +33,7 @@ public class TestPostAPIRequest extends BaseTest {
 								.contentType(ContentType.JSON)
 								.body(booking.toString())
 //								.body(booking) // Also works
-								.baseUri("http://localhost:3001/booking")
+								.baseUri(FileNameConstants.BASE_URI+"/booking")
 //								.log().ifValidationFails()
 							.when()
 								.post()
@@ -55,7 +56,7 @@ public class TestPostAPIRequest extends BaseTest {
 			.given()
 				.contentType(ContentType.JSON)
 				.pathParam("id", bookingId)
-				.baseUri("http://localhost:3001/booking")
+				.baseUri(FileNameConstants.BASE_URI+"booking")
 			.when()
 				.get("{id}")
 			.then()
