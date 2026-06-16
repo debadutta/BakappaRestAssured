@@ -7,6 +7,12 @@ pipeline {
     	
     stages {
 		
+		stage('Debug') {
+		    steps {
+		        sh 'cat suites/restassuredapitest.xml'
+		    }
+		}
+		
 		stage('Check Java') {
 		    steps {
 		        sh 'java -version'
