@@ -9,9 +9,9 @@ pipeline {
 		
 		stage('Check Java') {
 		    steps {
-		        bat 'java -version'
-		        bat 'javac -version'
-		        bat 'mvn -version'
+		        sh 'java -version'
+		        sh 'javac -version'
+		        sh 'mvn -version'
 		    }
 		}
 
