@@ -7,13 +7,13 @@ pipeline {
     	
     stages {
 		
-		stage('Debug') {
-		    steps {
-		        sh 'cat suites/restassuredapitest.xml'
-		    }
-		}
-		
-		stage('Check Java') {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Check Java') {
 		    steps {
 		        sh 'java -version'
 		        sh 'javac -version'
@@ -21,30 +21,27 @@ pipeline {
 		    }
 		}
 
-        stage('Checkout') {
+        stage('Run Tests and generate report') {
             steps {
-                checkout scm
+                sh 'mvn clean test surefire-report:report'
             }
         }
-
-        stage('Run Tests') {
-            steps {
-                sh 'mvn clean test'
-            }
-        }
-        
-        stage('Generate Report') {
-		    steps {
-		        sh 'mvn surefire-report:report'
-		    }
-		}
     }
 
     post {
     	 always {
     	 	echo '***********************************'
             junit 'target/surefire-reports/*.xml'
+            publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'target/site',
+            reportFiles: 'surefire-report.html',
+            reportName: 'Surefire Report'
+        	])
             echo '***********************************'
+            
         }
         
         success {
