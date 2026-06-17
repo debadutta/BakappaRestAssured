@@ -40,11 +40,11 @@ pipeline {
             junit 'target/surefire-reports/*.xml'
             publishHTML([
             allowMissing: false,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'target/site',
-            reportFiles: 'surefire-report.html',
-            reportName: 'Surefire Report'
+		    alwaysLinkToLastBuild: true,
+		    keepAll: true,
+		    reportDir: 'target/site',
+		    reportFiles: 'index.html',
+		    reportName: 'Maven Site'
         	])
             echo '***********************************'
             
