@@ -37,7 +37,7 @@ public class TestPatchAPIRequest {
 				given()
 					.contentType(ContentType.JSON)
 					.body(postAPIRequestBody)
-					.baseUri("FileNameConstants.BASE_URI")
+					.baseUri(FileNameConstants.BASE_URI)
 				.when()
 					.post("/booking")
 				.then()
@@ -53,7 +53,7 @@ public class TestPatchAPIRequest {
 			//RestAssured
 				given()
 					.contentType(ContentType.JSON)
-					.baseUri("FileNameConstants.BASE_URI")
+					.baseUri(FileNameConstants.BASE_URI)
 				.when()
 					.get("booking/{id}",bookingId)
 				.then()

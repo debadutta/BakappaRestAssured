@@ -13,7 +13,7 @@ public class TestGetAPIRequest {
 		Response response=RestAssured
 			.given()
 				.contentType(ContentType.JSON)
-				.baseUri("FileNameConstants.BASE_URI")
+				.baseUri(FileNameConstants.BASE_URI)
 			.when()
 				.get()
 			.then()

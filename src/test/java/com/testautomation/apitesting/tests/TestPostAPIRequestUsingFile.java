@@ -27,7 +27,7 @@ public class TestPostAPIRequestUsingFile extends BaseTest{
 				.given()
 					.contentType(ContentType.JSON)
 					.body(requestBody)
-					.baseUri("http://localhost:3001/booking")
+					.baseUri(FileNameConstants.BASE_URI+"/booking")
 				.when()
 					.post()
 				.then()
