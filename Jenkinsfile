@@ -26,6 +26,12 @@ pipeline {
                 sh 'mvn clean test site surefire-report:report'
             }
         }
+        
+        stage('List Reports') {
+		    steps {
+		        sh 'ls -l target/site'
+		    }
+}
     }
 
     post {
