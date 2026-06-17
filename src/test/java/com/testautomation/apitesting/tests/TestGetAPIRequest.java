@@ -17,7 +17,7 @@ public class TestGetAPIRequest {
 				.contentType(ContentType.JSON)
 				.baseUri(FileNameConstants.BASE_URI)
 			.when()
-				.get()
+				.get("booking")
 			.then()
 				.assertThat()
 				.statusCode(200)
@@ -25,7 +25,7 @@ public class TestGetAPIRequest {
 				.header("Content-Type", "application/json; charset=utf-8")
 				.extract()
 					.response();
-		
+		System.out.println(response.asPrettyString());
 		Assert.assertTrue(response.getBody().asString().contains("bookingid"));
 	}
 
