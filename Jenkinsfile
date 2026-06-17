@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run Tests and generate report') {
             steps {
-                sh 'mvn clean test surefire-report:report'
+                sh 'mvn clean test site surefire-report:report'
             }
         }
     }
