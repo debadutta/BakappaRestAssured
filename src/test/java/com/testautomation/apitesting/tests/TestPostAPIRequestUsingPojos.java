@@ -43,7 +43,7 @@ public class TestPostAPIRequestUsingPojos extends BaseTest{
 				.given()
 					.contentType(ContentType.JSON)
 					.body(requestBody)
-					.baseUri("http://localhost:3001").log().all()
+					.baseUri(FileNameConstants.BASE_URI).log().all()
 				.when()
 					.post("booking")
 				.then()
@@ -55,7 +55,7 @@ public class TestPostAPIRequestUsingPojos extends BaseTest{
 			 System.out.println("*************GET*************");
 			 	given()
 			 		.contentType(ContentType.JSON)
-			 		.baseUri("http://localhost:3001").log().all()
+			 		.baseUri(FileNameConstants.BASE_URI).log().all()
 			 	.when()
 			 		.get("/booking/{b_id}",bookingId)
 			 	.then()

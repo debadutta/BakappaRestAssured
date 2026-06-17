@@ -7,6 +7,8 @@ import java.util.List;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import com.testautomation.apitesting.utils.FileNameConstants;
+
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -22,7 +24,7 @@ public class TestRestAssured {
 //			Response r=
 			ResponseBodyExtractionOptions b = given()
 				.contentType(ContentType.JSON)
-				.baseUri("http://localhost:3001/booking")
+				.baseUri(FileNameConstants.BASE_URI+"/booking")
 			.when()
 				.get()
 			.then()

@@ -49,7 +49,7 @@ public class TestPostAPIRequestUsingFile extends BaseTest{
 			RestAssured
 				.given()
 					.contentType(ContentType.JSON)
-					.baseUri("http://localhost:3001/booking")
+					.baseUri(FileNameConstants.BASE_URI+"/booking")
 				.when()
 					.get("/{id}",bookingId)
 				.then()
